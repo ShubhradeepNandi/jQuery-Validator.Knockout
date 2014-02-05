@@ -48,6 +48,9 @@
             var $elem = $(element),
                 validationCtx = valueAccessor();
             validationCtx.containerElement = $elem;
+            ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+                validationCtx.containerElement = null;
+            });
         }
     };
 })(jQuery,ko);
